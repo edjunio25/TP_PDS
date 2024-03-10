@@ -2,13 +2,13 @@
 # Repositório para o trabalho prático da disciplina Prática em Desenvolvimento de Software - 01/2024
 
 # **Participantes**:
-- Edson Júnio - backend;
+- **Edson Júnio Bonfim Pinto** - *backend*;
 
-- Luiz Barcelos - fullstack;
+- **Luiz Henrique Silveira Barcelos** - *fullstack*;
 
-- Vinicius Carvalho - fullstack;
+- **Vinicius Gabriel de Carvalho** - *fullstack*;
 
-- Willian - backend;
+- **Willian Douglas Brito Braga** - *backend*;
 
 # **Escopo de projeto**:
 

@@ -27,7 +27,7 @@
 # **Linguagens**:
 - C#
 
-- Angular
+- Angular (Typescript)
 
 # **Tecnologias**:
 - SQLite

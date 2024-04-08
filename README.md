@@ -61,6 +61,9 @@ Tarefas e responsáveis:
 ### **História #4: Como usuário, eu gostaria de organizar os semestres em função das disciplinas matriculadas** <br />
 Tarefas e Responsáveis:
 - Acionar nova entidade (disciplina) ao banco de dados [Willian]
+- Criar botão + modal de cadastro de semestre [Vinicius]
+- Criar endpoint de cadastro de semestre [Edson]
+
 <br />
 
 ### **História #5: Como usuário, eu gostaria de adicionar/remover disciplinas nos semestres registrados** <br />

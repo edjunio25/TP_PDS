@@ -30,13 +30,6 @@
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="ClientApp\src\core\dominio\Atividade.cs" />
-    <Compile Remove="ClientApp\src\core\dominio\Data.cs" />
-    <Compile Remove="ClientApp\src\core\dominio\Disciplina.cs" />
-    <Compile Remove="ClientApp\src\core\dominio\Falta.cs" />
-    <Compile Remove="ClientApp\src\core\dominio\TarefaAgendada.cs" />
-  </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

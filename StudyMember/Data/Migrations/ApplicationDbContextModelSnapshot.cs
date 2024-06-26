@@ -290,6 +290,32 @@ namespace StudyMember.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Falta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DataDeRegistro")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("DataFalta")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("HoraAula")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Justificativa")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LinkAnexo")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Faltas");
+                });
+
             modelBuilder.Entity("StudyMember.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")

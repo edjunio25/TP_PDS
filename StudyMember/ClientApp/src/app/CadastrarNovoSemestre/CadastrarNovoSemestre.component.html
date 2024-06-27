@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Novo Semestre</title>
+  <!-- Bootstrap CSS for styling the form -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Cadastrar Novo Semestre</h1>
+    <p>Preencha o formulário abaixo para cadastrar um novo semestre:</p>
+
+    <form id="registerSemesterForm">
+      <!-- Nome da Disciplina Field -->
+      <div class="form-group">
+        <label for="nomeDisciplina">Nome da Disciplina</label>
+        <input type="text" class="form-control" id="nomeDisciplina" name="nomeDisciplina" placeholder="Digite o nome da disciplina" required>
+      </div>
+
+      <!-- Add more fields as needed -->
+      <!-- Example of additional field: Código da Disciplina -->
+      <div class="form-group">
+        <label for="codigoDisciplina">Código da Disciplina</label>
+        <input type="text" class="form-control" id="codigoDisciplina" name="codigoDisciplina" placeholder="Digite o código da disciplina">
+      </div>
+
+      <!-- Example of additional field: Data de Início -->
+      <div class="form-group">
+        <label for="dataInicio">Data de Início</label>
+        <input type="date" class="form-control" id="dataInicio" name="dataInicio">
+      </div>
+
+      <!-- Example of additional field: Data de Término -->
+      <div class="form-group">
+        <label for="dataTermino">Data de Término</label>
+        <input type="date" class="form-control" id="dataTermino" name="dataTermino">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+    <!-- Link back to the main page -->
+    <div class="mt-4">
+      <a href="index.html" class="btn btn-secondary">Voltar para a Página Inicial</a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (Optional for Bootstrap components) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript to handle form submission -->
+  <script>// Event listener for form submission
+        document.getElementById('registerSemesterForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the default form submission
+
+            // Placeholder function for form submission
+            // Here you can add functionality to handle form submission, such as sending data to the server
+            alert('Form submitted! Nome da Disciplina: ' + document.getElementById('nomeDisciplina').value);
+        });</script>
+</body>
+</html>

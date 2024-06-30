@@ -5,10 +5,13 @@ namespace StudyMember.Domain
     {
         private int idAtividade { get; set; }
         public string nomeAtividade { get; set; }
-        public DateTime dataEntregaAtividade { get; set; }
+        public DateTime dataDeInclusaoAtividade { get; set; }
+        public DateTime dataPrazoAtividade { get; set; }
+        public DateTime? dataEntregaAtividade { get; set; }
         public AtividadeTipo tipoDaAtividade { get; set; }
 
-        public bool atividadeConcluida { get; set; }
+        //public bool atividadeConcluida { get; set; }
+        public StatusAtividade? statusDaAtividade { get; set; }
         public int valor { get; set; }
         public int nota { get; set; }
 
@@ -16,16 +19,36 @@ namespace StudyMember.Domain
         {
             //TODO implementar ID único ou sequencial ou aleatório
 
-            nomeAtividade = nomeInput;
-            dataEntregaAtividade = dataInput;
-            tipoDaAtividade = tipoInput;
-            valor = valorInput;
-            atividadeConcluida = false;
+            this.nomeAtividade = nomeInput;
+            this.dataDeInclusaoAtividade = DateTime.Now;
+            this.dataPrazoAtividade = dataInput;
+            this.tipoDaAtividade = tipoInput;
+            this.valor = valorInput;
+            this.atualizarStatusAtividade();
 
         }
-        int getIdAtividade()
+
+        public void atualizarStatusAtividade()
         {
-            return idAtividade;
+            if (statusDaAtividade is not StatusAtividade.cancelada or null)
+            {
+                if (dataPrazoAtividade < DateTime.Now && dataEntregaAtividade == null)
+                {
+                    statusDaAtividade = StatusAtividade.atrasada;
+                }
+                else if (dataEntregaAtividade > dataPrazoAtividade)
+                {
+                    statusDaAtividade = StatusAtividade.concluidaComAtraso;
+                }
+                else if (dataEntregaAtividade >= dataPrazoAtividade)
+                {
+                    statusDaAtividade = StatusAtividade.concluida;
+                }
+                else
+                {
+                    statusDaAtividade = StatusAtividade.pendente;
+                }
+            }
         }
 
     }
@@ -35,6 +58,15 @@ namespace StudyMember.Domain
         prova,
         atividadeIsolada,
         trabalho
+    }
+
+    public enum StatusAtividade
+    {
+        pendente,
+        concluida,
+        concluidaComAtraso,
+        atrasada,
+        cancelada
     }
 
 }

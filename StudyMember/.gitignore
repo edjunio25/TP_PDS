@@ -7,6 +7,12 @@
 *.userosscache
 *.sln.docstates
 
+#Arquivos de bancos de dados
+
+*.db
+*.dm-shm
+*.db-wal
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

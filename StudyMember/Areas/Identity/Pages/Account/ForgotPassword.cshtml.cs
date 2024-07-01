@@ -47,6 +47,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
         }
 

@@ -43,6 +43,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             /// <summary>
@@ -52,6 +53,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "A {0} deve possuir no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             /// <summary>

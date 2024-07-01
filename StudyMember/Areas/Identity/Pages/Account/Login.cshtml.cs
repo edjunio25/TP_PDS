@@ -72,6 +72,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             /// <summary>
@@ -80,6 +81,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             /// <summary>

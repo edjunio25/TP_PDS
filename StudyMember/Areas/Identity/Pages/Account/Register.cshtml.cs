@@ -77,7 +77,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
-            //[Display(Name = "Email")]
             [Display(Name = "E-mail")]
             public string Email { get; set; }
 
@@ -86,10 +85,8 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [StringLength(100, ErrorMessage = "A {0} deve possuir no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            //[Display(Name = "Password")]
             [Display(Name = "Senha")]
             public string Password { get; set; }
 
@@ -98,9 +95,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            //[Display(Name = "Confirm password")]
             [Display(Name = "Confirmar senha")]
-            //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             [Compare("Password", ErrorMessage = "A senha e sua confirmação não combinam.")]
             public string ConfirmPassword { get; set; }
         }
@@ -126,7 +121,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    //_logger.LogInformation("User created a new account with password.");
                     _logger.LogInformation("Usuário criou uma nova conta com senha.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -137,9 +131,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
-
-                    /*await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirme seu e-mail",
                         $"Por favor, confirme sua conta, <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.");
@@ -172,10 +163,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             }
             catch
             {
-                /*throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
-                    $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
-                    $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");*/
-
                 throw new InvalidOperationException($"Não foi possível criar uma instância de '{nameof(ApplicationUser)}'. " +
                     $"Certifique-se que '{nameof(ApplicationUser)}' não é uma classe abstrata e que possua um construtor sem parâmetros, ou de forma alternativa, " +
                     $"sobreponha a página de login externo, localizada em /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
@@ -186,7 +173,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
         {
             if (!_userManager.SupportsUserEmail)
             {
-                //throw new NotSupportedException("The default UI requires a user store with email support.");
                 throw new NotSupportedException("A interface de usuário padrão requer um repositório de usuários com suporte à e-mail.");
             }
             return (IUserEmailStore<ApplicationUser>)_userStore;

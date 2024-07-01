@@ -102,14 +102,12 @@ namespace StudyMember.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (remoteError != null)
             {
-                //ErrorMessage = $"Error from external provider: {remoteError}";
                 ErrorMessage = $"Erro do fornecedor externo: {remoteError}";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                //ErrorMessage = "Error loading external login information.";
                 ErrorMessage = "Erro ao carregar informações de login externo.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
@@ -118,7 +116,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
-                //_logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
                 _logger.LogInformation("{Name} efetuou login usando o fornecedor {LoginProvider}.", info.Principal.Identity.Name, info.LoginProvider);
                 return LocalRedirect(returnUrl);
             }
@@ -149,7 +146,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                //ErrorMessage = "Error loading external login information during confirmation.";
                 ErrorMessage = "Erro ao carregar informações de login externo durante a confirmação.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
@@ -167,7 +163,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
-                        //_logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
                         _logger.LogInformation("Usuário criou uma conta usando o fornecedor {Name}.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);
@@ -179,8 +174,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        /*await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
                         await _emailSender.SendEmailAsync(Input.Email, "Confirme seu e-mail",
                             $"Por favor, confirme sua conta, <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.");
 
@@ -213,10 +206,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             }
             catch
             {
-                /*throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
-                    $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
-                    $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");*/
-
                 throw new InvalidOperationException($"Não foi possível criar uma instância de '{nameof(ApplicationUser)}'. " +
                     $"Certifique-se que '{nameof(ApplicationUser)}' não é uma classe abstrata e que possua um construtor sem parâmetros, ou de forma alternativa, " +
                     $"sobreponha a página de login externo, localizada em /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
@@ -227,7 +216,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
         {
             if (!_userManager.SupportsUserEmail)
             {
-                //throw new NotSupportedException("The default UI requires a user store with email support.");
                 throw new NotSupportedException("A interface de usuário padrão requer um repositório de usuários com suporte à e-mail.");
             }
             return (IUserEmailStore<ApplicationUser>)_userStore;

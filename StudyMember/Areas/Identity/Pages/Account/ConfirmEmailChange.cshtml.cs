@@ -42,7 +42,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                //return NotFound($"Unable to load user with ID '{userId}'.");
                 return NotFound($"Não foi possível carregar o usuário com ID '{userId}'.");
             }
 
@@ -50,7 +49,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             var result = await _userManager.ChangeEmailAsync(user, email, code);
             if (!result.Succeeded)
             {
-                //StatusMessage = "Error changing email.";
                 StatusMessage = "Erro ao alterar e-mail.";
                 return Page();
             }
@@ -60,13 +58,11 @@ namespace StudyMember.Areas.Identity.Pages.Account
             var setUserNameResult = await _userManager.SetUserNameAsync(user, email);
             if (!setUserNameResult.Succeeded)
             {
-                //StatusMessage = "Error changing user name.";
                 StatusMessage = "Erro ao alterar o nome do usuário.";
                 return Page();
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            //StatusMessage = "Thank you for confirming your email change.";
             StatusMessage = "Obrigado por confirmar sua alteração de e-mail.";
             return Page();
         }

@@ -46,8 +46,9 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
         }
 
@@ -65,7 +66,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                //ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
                 ModelState.AddModelError(string.Empty, "E-mail de verificação enviado. Por favor, cheque seu e-mail.");
                 return Page();
             }
@@ -78,17 +78,12 @@ namespace StudyMember.Areas.Identity.Pages.Account
                 pageHandler: null,
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
-            /*await _emailSender.SendEmailAsync(
-                Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
 
             await _emailSender.SendEmailAsync(
                 Input.Email,
                 "Confirme seu e-mail",
                 $"Por favor, confirme seu e-mail, <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.");
 
-            //ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             ModelState.AddModelError(string.Empty, "E-mail de verificação enviado. Por favor, cheque seu e-mail.");
             return Page();
         }

@@ -45,8 +45,9 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
         }
 
@@ -70,11 +71,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
                     pageHandler: null,
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
-
-                /*await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
 
                 await _emailSender.SendEmailAsync(
                     Input.Email,

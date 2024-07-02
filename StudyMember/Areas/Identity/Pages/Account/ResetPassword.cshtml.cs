@@ -41,18 +41,19 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage="É necessário o preenchimento deste campo")]
             [StringLength(100, ErrorMessage = "A {0} deve possuir no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             /// <summary>
@@ -60,9 +61,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            //[Display(Name = "Confirm password")]
             [Display(Name = "Confirmar senha")]
-            //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             [Compare("Password", ErrorMessage = "A senha e sua confirmação não combinam.")]
             public string ConfirmPassword { get; set; }
 
@@ -70,7 +69,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             public string Code { get; set; }
 
         }
@@ -79,7 +78,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
         {
             if (code == null)
             {
-                //return BadRequest("A code must be supplied for password reset.");
                 return BadRequest("Um código deve ser fornecido para a redefinição da senha.");
             }
             else

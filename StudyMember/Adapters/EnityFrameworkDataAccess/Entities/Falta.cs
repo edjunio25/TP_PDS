@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using StudyMember.Adapters.EnityFrameworkDataAccess.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities
@@ -12,5 +13,8 @@ namespace StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities
         public int ?HoraAula { get; set; }
         public string? Justificativa { get; set; }
         public string? LinkAnexo { get; set; }
+        public bool Abonada { get; set; }
+        public int? DisciplinaId { get; set; }
+        public Disciplina? Disciplina { get; set; }
     }
 }

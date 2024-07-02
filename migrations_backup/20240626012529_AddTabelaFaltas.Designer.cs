@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyMember.Data;
 
@@ -10,9 +11,10 @@ using StudyMember.Data;
 namespace StudyMember.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240626012529_AddTabelaFaltas")]
+    partial class AddTabelaFaltas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.28");
@@ -290,82 +292,10 @@ namespace StudyMember.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Atividade", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("DataDeInclusaoAtividade")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("DataEntregaAtividade")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DataPrazoAtividade")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<float>("Nota")
-                        .HasColumnType("REAL");
-
-                    b.Property<int?>("StatusDaAtividade")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TipoDaAtividade")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("Valor")
-                        .HasColumnType("REAL");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Atividade");
-                });
-
-            modelBuilder.Entity("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Disciplina", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CargaHoraria")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("FaltasRestantes")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Nome")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("NotaTotal")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("NotaTotalDistribuida")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("PercentualDeFaltasPermitidas")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("StatusDaDisciplina")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TempoDeEstudo")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Disciplinas");
-                });
-
             modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Falta", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("Abonada")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("DataDeRegistro")
@@ -373,9 +303,6 @@ namespace StudyMember.Data.Migrations
 
                     b.Property<DateTime?>("DataFalta")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("DisciplinaId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("HoraAula")
                         .HasColumnType("INTEGER");
@@ -388,32 +315,7 @@ namespace StudyMember.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DisciplinaId");
-
                     b.ToTable("Faltas");
-                });
-
-            modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("AlunoId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Ano")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SemestreReferencia")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AlunoId");
-
-                    b.ToTable("Semestres");
                 });
 
             modelBuilder.Entity("StudyMember.Models.ApplicationUser", b =>
@@ -529,69 +431,6 @@ namespace StudyMember.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Atividade", b =>
-                {
-                    b.HasOne("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Disciplina", "Disciplina")
-                        .WithMany("Atividades")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("DisciplinaAtividadeFKConstraint");
-
-                    b.Navigation("Disciplina");
-                });
-
-            modelBuilder.Entity("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Disciplina", b =>
-                {
-                    b.HasOne("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre", "Semestre")
-                        .WithMany("Disciplinas")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("SemestreDisciplinaFKConstraint");
-
-                    b.Navigation("Semestre");
-                });
-
-            modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Falta", b =>
-                {
-                    b.HasOne("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Disciplina", "Disciplina")
-                        .WithMany("Faltas")
-                        .HasForeignKey("DisciplinaId")
-                        .HasConstraintName("DisciplinaFaltaFKConstraint");
-
-                    b.Navigation("Disciplina");
-                });
-
-            modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre", b =>
-                {
-                    b.HasOne("StudyMember.Models.ApplicationUser", "Aluno")
-                        .WithMany("Semestres")
-                        .HasForeignKey("AlunoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("SemestreAlunoFKConstraint");
-
-                    b.Navigation("Aluno");
-                });
-
-            modelBuilder.Entity("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Disciplina", b =>
-                {
-                    b.Navigation("Atividades");
-
-                    b.Navigation("Faltas");
-                });
-
-            modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre", b =>
-                {
-                    b.Navigation("Disciplinas");
-                });
-
-            modelBuilder.Entity("StudyMember.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("Semestres");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,6 +11,6 @@ namespace StudyMember.Domain.Semestres
         public int HoraAula { get; set; }
         public string? Justificativa { get; set; }
         public string? LinkAnexo { get; set; }
-
+        public bool Abonada { get; set; }
     }
 }

@@ -3,27 +3,25 @@ namespace StudyMember.Domain
 {
     public class Atividade
     {
-        private int idAtividade { get; set; }
-        public string nomeAtividade { get; set; }
-        public DateTime dataDeInclusaoAtividade { get; set; }
-        public DateTime dataPrazoAtividade { get; set; }
-        public DateTime? dataEntregaAtividade { get; set; }
-        public AtividadeTipo tipoDaAtividade { get; set; }
-
-        //public bool atividadeConcluida { get; set; }
+        public int Id { get; set; }
+        public string NomeAtividade { get; set; }
+        public DateTime DataDeInclusaoAtividade { get; set; }
+        public DateTime DataPrazoAtividade { get; set; }
+        public DateTime? DataEntregaAtividade { get; set; }
+        public AtividadeTipo TipoDaAtividade { get; set; }
         public StatusAtividade? statusDaAtividade { get; set; }
-        public int valor { get; set; }
-        public int nota { get; set; }
+        public float Valor { get; set; }
+        public float Nota { get; set; }
 
         public Atividade(string nomeInput, DateTime dataInput, AtividadeTipo tipoInput, int valorInput)
         {
             //TODO implementar ID único ou sequencial ou aleatório
 
-            this.nomeAtividade = nomeInput;
-            this.dataDeInclusaoAtividade = DateTime.Now;
-            this.dataPrazoAtividade = dataInput;
-            this.tipoDaAtividade = tipoInput;
-            this.valor = valorInput;
+            this.NomeAtividade = nomeInput;
+            this.DataDeInclusaoAtividade = DateTime.Now;
+            this.DataPrazoAtividade = dataInput;
+            this.TipoDaAtividade = tipoInput;
+            this.Valor = valorInput;
             this.atualizarStatusAtividade();
 
         }
@@ -32,15 +30,15 @@ namespace StudyMember.Domain
         {
             if (statusDaAtividade is not StatusAtividade.cancelada or null)
             {
-                if (dataPrazoAtividade < DateTime.Now && dataEntregaAtividade == null)
+                if (DataPrazoAtividade < DateTime.Now && DataEntregaAtividade == null)
                 {
                     statusDaAtividade = StatusAtividade.atrasada;
                 }
-                else if (dataEntregaAtividade > dataPrazoAtividade)
+                else if (DataEntregaAtividade > DataPrazoAtividade)
                 {
                     statusDaAtividade = StatusAtividade.concluidaComAtraso;
                 }
-                else if (dataEntregaAtividade >= dataPrazoAtividade)
+                else if (DataEntregaAtividade >= DataPrazoAtividade)
                 {
                     statusDaAtividade = StatusAtividade.concluida;
                 }

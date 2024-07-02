@@ -1,25 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using StudyMember.Domain.DisciplinaDomain;
 
-namespace StudyMember.Domain.Semestre.Semestre.cs
+namespace StudyMember.Domain.Semestres
 {
-    public class Semestre
+    public class Semestre : ISemestre
     {
-    public Guid semestreId { get; private set; }
-    public int ano { get; private set; }
-    public int semestreReferencia { get; private set; }
-    public List<int>? listaIdsDisciplinas;
-    public List<int>? listaIdsTarefas;
+        public int Id { get; set; }
+        public int Ano { get; set; }
+        public int SemestreReferencia { get; set; }
+        public List<Disciplina> Disciplinas { get; set; }
+        private ISemestreRepo? _repo { get; set; }
 
-    public Semestre(int ano, int semestreReferencia)
+        public Semestre(ISemestreRepo repo)
         {
-            semestreId = Guid.NewGuid();
-            this.ano = ano;
-            this.semestreReferencia = semestreReferencia;
-            listaIdsDisciplinas = new List<int>();
+            this.Disciplinas = new List<Disciplina>();
+            this._repo = repo;
         }
 
+        public Semestre(int Id, int ano, int SemestreReferencia) 
+        { 
+            this.Id = Id;
+            this.Ano = ano;
+            this.SemestreReferencia = SemestreReferencia;
+            this.Disciplinas = new List<Disciplina>();
+        }
+
+        public Semestre GetSemestre(int id)
+        {
+            var semestre = _repo.GetSemestreAsync(id).Result;
+            return new Semestre(semestre.Id, semestre.Ano, semestre.SemestreReferencia);
+        }
     }
-
-
-
 }

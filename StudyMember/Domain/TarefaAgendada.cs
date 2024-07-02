@@ -2,34 +2,22 @@ namespace StudyMember.Domain
 {
   public class TarefaAgendada
   {
-    private int idTarefa {  get; }
-    private int idAtividade { get; set; }
-    public DateTime dataTermino { get; set; }
-    public  DateTime dataCriacaoDaTarefa { get; }
-    public string nomeTarefa { get; set; }
-    public string descricaoTarefa { get; set; }
+    public int Id {  get; }
+    public int IdAtividade { get; set; }
+    public DateTime DataTermino { get; set; }
+    public  DateTime DataCriacao { get; }
+    public string Nome { get; set; }
+    public string Descricao { get; set; }
 
-    // Uma ideia, utilizar o tipo para determinar a cor da tarefa na interface depois
-    // A avaliar viabilidade
-    public int tipoTarefa;
+    public TiposDeTarefa Tipo;
 
-    public TarefaAgendada (string nomeTarefaInput, DateTime dataTerminoInput, string descricaoInput, int idAtividadeInput)
+    public TarefaAgendada()
     {
-      nomeTarefa = nomeTarefaInput;
-      dataTermino = dataTerminoInput;
-      descricaoTarefa = descricaoInput;
-      idAtividade = idAtividadeInput;
-
-      // Automaticos
-      dataCriacaoDaTarefa = DateTime.Now;
-      // TODO Implementar id unico
 
     }
-
-
   }
 
-  public enum tiposDeTarefa
+  public enum TiposDeTarefa
   {
     atividade,
     prova,

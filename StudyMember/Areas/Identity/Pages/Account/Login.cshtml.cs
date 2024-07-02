@@ -112,9 +112,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
-            var resultado = _context.Faltas.Add(new Infrastructure.EnityFrameworkDataAccess.Entities.Falta());
-            await _context.SaveChangesAsync();
-
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)

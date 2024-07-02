@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyMember.Data;
 
@@ -10,9 +11,10 @@ using StudyMember.Data;
 namespace StudyMember.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240702193622_NovasEntidades")]
+    partial class NovasEntidades
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.28");
@@ -362,7 +364,6 @@ namespace StudyMember.Data.Migrations
             modelBuilder.Entity("StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Falta", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("Abonada")
@@ -374,9 +375,6 @@ namespace StudyMember.Data.Migrations
                     b.Property<DateTime?>("DataFalta")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("DisciplinaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("HoraAula")
                         .HasColumnType("INTEGER");
 
@@ -387,8 +385,6 @@ namespace StudyMember.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DisciplinaId");
 
                     b.ToTable("Faltas");
                 });
@@ -559,7 +555,9 @@ namespace StudyMember.Data.Migrations
                 {
                     b.HasOne("StudyMember.Adapters.EnityFrameworkDataAccess.Entities.Disciplina", "Disciplina")
                         .WithMany("Faltas")
-                        .HasForeignKey("DisciplinaId")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("DisciplinaFaltaFKConstraint");
 
                     b.Navigation("Disciplina");

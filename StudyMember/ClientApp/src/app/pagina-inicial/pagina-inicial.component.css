@@ -1,0 +1,71 @@
+/* pagina-inicial.component.css */
+
+/* Estilo para o cabeçalho da página */
+header {
+  margin-bottom: 20px;
+}
+
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+/* Estilo para a seção das listas */
+.list-section {
+  margin-bottom: 20px;
+}
+
+  .list-section h3 {
+    margin-bottom: 10px;
+  }
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .list-group-item a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+    .list-group-item a:hover {
+      text-decoration: underline;
+    }
+
+/* Estilo para a área de conteúdo principal */
+.main-content {
+  padding: 20px;
+}
+
+  .main-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+.table {
+  margin-top: 20px;
+}
+
+  .table th, .table td {
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .table th {
+    background-color: #f8f9fa;
+  }
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f8f9fa;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  margin-bottom: 100px; /* Para garantir que o footer fique na parte inferior */
+}

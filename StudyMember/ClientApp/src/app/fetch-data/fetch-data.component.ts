@@ -9,7 +9,7 @@ export class FetchDataComponent {
   public semestre: Semestre | undefined;
   public forecasts: WeatherForecast[] = [];
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Semestre>(baseUrl + 'id=1').subscribe(result => {
+    http.get<Semestre>(baseUrl + 'semestre?id=1').subscribe(result => {
       this.semestre = result;
     }, error => console.error(error));
   }

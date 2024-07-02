@@ -1,23 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudyMember.Adapters.EnityFrameworkDataAccess.Repos;
 using StudyMember.Data;
 using StudyMember.Domain.Semestres;
 
-namespace StudyMember.Adapters.EnityFrameworkDataAccess.Ports
+namespace StudyMember.Controllers;
+
+[Authorize]
+[ApiController]
+[Route("[controller]")]
+public class SemestreController : ControllerBase
 {
-    public class SemestreController : ControllerBase
+    private readonly ApplicationDbContext _context;
+    public SemestreController(ApplicationDbContext context) 
     {
-        private readonly ApplicationDbContext _context;
-        public SemestreController(ApplicationDbContext context) 
-        {
-            _context = context;
-        }
-        [HttpGet]
-        public Semestre Get([FromQuery] int id)
-        {
-            var repo = new SemestreRepo(_context);
-            var semestre = new Semestre(repo);
-            return semestre.GetSemestre(id);
-        }
+        _context = context;
+    }
+    [HttpGet]
+    public Semestre Get([FromQuery] int id)
+    {
+        var repo = new SemestreRepo(_context);
+        var semestre = new Semestre(repo);
+        return semestre.GetSemestre(id);
     }
 }
+

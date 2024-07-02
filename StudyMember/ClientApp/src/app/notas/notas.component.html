@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas - StudyMember</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/notas.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">Notas</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Provas</th>
+          <th>Atividades</th>
+          <th>Trabalhos</th>
+          <th>Outros</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="disciplinas-tabela">
+        <!-- As linhas serão adicionadas dinamicamente aqui -->
+      </tbody>
+    </table>
+    <div class="text-center mt-4">
+      <button class="btn btn-primary" id="adicionar-disciplina">Adicionar Disciplina</button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/notas.js"></script>
+</body>
+</html>

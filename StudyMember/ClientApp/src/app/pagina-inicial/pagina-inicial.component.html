@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Dashboard - StudyMember</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Main content area -->
+      <div class="col-md-9 order-md-1">
+        <div class="main-content">
+          <h2>Bem vindo(a), {{ userName }}</h2>
+          <table class="table table-bordered table-striped mt-4">
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic rows for disciplines -->
+              <tr *ngFor="let disciplina of disciplinas">
+                <td>{{ disciplina.name }}</td>
+                <td>{{ disciplina.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sidebar for lists -->
+      <div class="col-md-3 order-md-2">
+        <div class="list-section">
+          <h3>Próximas atividades</h3>
+          <ul class="list-group" id="atividades-list">
+            <!-- Dynamically populated list items -->
+            <li class="list-group-item" *ngFor="let atividade of atividades">
+              {{ atividade.name }} - {{ atividade.date }}
+            </li>
+            <li class="list-group-item">
+              <a href="#">More</a>
+            </li>
+          </ul>
+        </div>
+        <div class="list-section mt-4">
+          <h3>Próximos eventos</h3>
+          <ul class="list-group" id="eventos-list">
+            <!-- Dynamically populated list items -->
+            <li class="list-group-item" *ngFor="let evento of eventos">
+              {{ evento.name }} - {{ evento.date }}
+            </li>
+            <li class="list-group-item">
+              <a href="#">More</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

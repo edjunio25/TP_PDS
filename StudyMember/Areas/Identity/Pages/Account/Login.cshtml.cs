@@ -70,23 +70,24 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            //[Display(Name = "Remember me?")]
             [Display(Name = "Lembrar de mim?")]
             public bool RememberMe { get; set; }
         }
@@ -122,7 +123,6 @@ namespace StudyMember.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    //_logger.LogInformation("User logged in.");
                     _logger.LogInformation("Usuário efetuou login.");
                     return LocalRedirect(returnUrl);
                 }
@@ -132,13 +132,11 @@ namespace StudyMember.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    //_logger.LogWarning("User account locked out.");
                     _logger.LogWarning("Conta do usuário bloqueada.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    //ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     ModelState.AddModelError(string.Empty, "Tentativa invalida de login.");
                     return Page();
                 }

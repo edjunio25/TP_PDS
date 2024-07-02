@@ -82,7 +82,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [EmailAddress]
             [Display(Name = "E-mail")]
             public string Email { get; set; }

@@ -53,7 +53,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [BindProperty]
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [DataType(DataType.Text)]
             [Display(Name = "Código de Recuperação")]
             public string RecoveryCode { get; set; }

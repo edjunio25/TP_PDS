@@ -41,7 +41,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             [EmailAddress]
             [Display(Name = "E-mail")]
             public string Email { get; set; }
@@ -50,7 +50,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage="É necessário o preenchimento deste campo")]
             [StringLength(100, ErrorMessage = "A {0} deve possuir no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
@@ -69,7 +69,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "É necessário o preenchimento deste campo")]
             public string Code { get; set; }
 
         }

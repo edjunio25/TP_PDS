@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MenuDisciplinaComponent implements OnInit {
   nomeDisciplina: string = 'Nome da Disciplina';
   status: string = 'Cursando'; // Exemplo de status
-  notaRecebida: number | undefined = 8.5; // Exemplo de nota recebida
+  faltas: number | undefined = 6;
+  notaRecebida: number | undefined = 17.5; // Exemplo de nota recebida
 
   proximasAtividades: any[] = [
     { nome: 'Atividade 1', dataPrazo: '2024-07-10' },

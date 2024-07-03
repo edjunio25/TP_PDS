@@ -20,8 +20,8 @@ export class CadastrarNovoSemestreComponent {
     this.baseUrl = baseUrl;
 
     this.registerSemesterForm = this.fb.group({
-      nomeDisciplina: ['', Validators.required],
-      codigoDisciplina: [''],
+      ano: [''],
+      semestreReferencia: [''],
       dataInicio: [''],
       dataTermino: ['']
     });

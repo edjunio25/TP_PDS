@@ -12,7 +12,7 @@
     <!-- Nome da Disciplina -->
     <h1>{{ nomeDisciplina }}</h1>
 
-    <!-- Informações de Status e Nota -->
+    <!--Status e Nota -->
     <div class="row mt-4">
       <div class="col-md-4">
         <div class="card">
@@ -30,9 +30,17 @@
           </div>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Faltas</h5>
+            <p class="card-text">{{ faltas }}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Tabela de Próximas Atividades -->
+    <!--Atividades -->
     <div class="row mt-4">
       <div class="col-md-6">
         <h2>Próximas Atividades</h2>
@@ -41,18 +49,22 @@
             <tr>
               <th>Atividade</th>
               <th>Data de Prazo</th>
+              <th>Ação</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let atividade of proximasAtividades">
               <td>{{ atividade.nome }}</td>
               <td>{{ atividade.dataPrazo }}</td>
+              <td>
+                <a class="btn btn-primary" [routerLink]="['/atividade']">Gerenciar</a>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Tabela de Atividades Concluídas -->
+      <!--Concluídas -->
       <div class="col-md-6">
         <h2>Atividades Concluídas</h2>
         <table class="table table-striped">

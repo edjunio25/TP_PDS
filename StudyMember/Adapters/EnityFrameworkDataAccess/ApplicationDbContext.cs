@@ -23,9 +23,10 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.Entity<Falta>().HasKey(f => f.Id);
+
         builder.Entity<Falta>(f =>
         {
+            f.HasKey(f => f.Id);
             f.HasOne(f => f.Disciplina)
              .WithMany(d => d.Faltas)
              .HasForeignKey(f => f.DisciplinaId)

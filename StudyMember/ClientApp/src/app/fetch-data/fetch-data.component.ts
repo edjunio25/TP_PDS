@@ -11,6 +11,7 @@ export class FetchDataComponent {
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Semestre>(baseUrl + 'semestre?id=1').subscribe(result => {
       this.semestre = result;
+      console.log(result);
     }, error => console.error(error));
   }
 }

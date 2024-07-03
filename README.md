@@ -137,3 +137,5 @@ https://www.figma.com/file/7ET3V7yJVB9xxx3OTjkg7T/StudyMember?type=design&node-i
 ### **Arquitetura Hexagonal**
 - Para a realização deste projeto foi adotado a implementação de uma Arquitetura Hexagonal
 - A razão por esta decisão se dá pelo seu princípio de separação de um sistema através de camadas isoladas e indepêndentes, o que permite o desenvolvimento de seus componentes seja feita de forma mais flexível e segura, o que facilita o crescimento do projeto
+### **Digrama Explicativo**
+![ArquiteturaHexagonal](https://github.com/edjunio25/TP_PDS/assets/135568450/5b39c7bd-f21a-4a88-9eb0-381f704b7bb4)

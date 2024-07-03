@@ -140,7 +140,7 @@ namespace StudyMember.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Tentativa invalida de login.");
+                    ModelState.AddModelError(string.Empty, "Tentativa inválida de login.");
                     return Page();
                 }
             }

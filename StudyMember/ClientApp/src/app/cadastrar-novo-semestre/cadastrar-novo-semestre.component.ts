@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastrar-novo-semestre',
-  templateUrl: './CadastrarNovoSemestre.component.html',
-  styleUrls: ['./CadastrarNovoSemestre.component.css']
+  templateUrl: './cadastrar-novo-semestre.component.html',
+  styleUrls: ['./cadastrar-novo-semestre.component.css']
 })
 export class CadastrarNovoSemestreComponent {
   // Form group for the semester registration form

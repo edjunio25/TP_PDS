@@ -4,16 +4,24 @@ body {
 }
 
 h1 {
-  color: #007bff;
+  color: #9a45b8;
 }
 
 .table {
   margin-top: 20px;
 }
 
-  .table th, .table td {
+  .table th {
     text-align: center;
     vertical-align: middle;
+  }
+
+  .table td {
+    text-align: center;
+    vertical-align: middle;
+    color: #9a45b8;
+    font-size: larger;
+    font-weight: bold;
   }
 
 .btn-primary {

@@ -26,8 +26,50 @@
             <a class="nav-link text-white" [routerLink]="['/']">Página Inicial</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/notas']">Notas</a>
+          </li>
+          <!--
+          <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/counter']">Counter</a>
           </li>
+          -->
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/semestres']">Semestres</a>
+          </li>
+
+          <!-- Dropdown para Disciplinas -->
+          <!--
+  <li class="nav-item dropdown" [routerLinkActive]="['link-active']">
+    <a class="nav-link dropdown-toggle text-white" href="#" id="disciplinasDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+      Disciplinas
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="disciplinasDropdown">
+      <li *ngFor="let disciplina of disciplinas">
+        <a class="dropdown-item" [routerLink]="['/disciplina', disciplina.id]">
+          {{ disciplina.name }}
+        </a>
+      </li>
+    </ul>
+  </li>
+  -->
+          <!-- Dropdown para Semestres -->
+          <!--
+  <li class="nav-item dropdown" [routerLinkActive]="['link-active']">
+    <a class="nav-link dropdown-toggle text-white" href="#" id="semestresDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+      Semestres
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="semestresDropdown">
+      <li *ngFor="let semestre of semestres">
+        <a class="dropdown-item" [routerLink]="['/semestre', semestre.id]">
+          {{ semestre.name }}
+        </a>
+      </li>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Novo Semestre</a>
+    </ul>
+  </li>
+  -->
+
         </ul>
         <app-login-menu></app-login-menu>
       </div>

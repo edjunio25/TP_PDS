@@ -21,3 +21,15 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+.navbar .dropdown-menu {
+  background-color: #f8f9fa; 
+}
+
+.navbar .dropdown-item {
+  color: #343a40;
+}
+
+  .navbar .dropdown-item:hover {
+    background-color: #e9ecef; 
+  }

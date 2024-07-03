@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaInicialComponent implements OnInit {
   userName: string = "Usuário"; // Nome do usuário, pode ser alterado dinamicamente
+
   atividades = [
     { name: 'Atividade 1', date: '2024-06-30' },
     { name: 'Atividade 2', date: '2024-07-15' },

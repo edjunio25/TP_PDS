@@ -149,3 +149,79 @@ as tecnologias externas adotadas e as portas da camada de domínio, sendo:
 
 ### **Diagrama Explicativo**
 ![ArquiteturaHexagonal](https://github.com/edjunio25/TP_PDS/assets/135568450/5b39c7bd-f21a-4a88-9eb0-381f704b7bb4)
+
+# **Backlog do Sprint (nova versão)**
+
+### **História #1: Como usuário, eu gostaria de cadastrar uma conta na plataforma e tê-la registrada no sistema**
+- Status: Concluída
+- Responsáveis
+  - Vinícius
+    - Criação do projeto
+    - Implementação do banco de dados com a primeira entidade, Usuário
+    - Determinação do endpoint de Cadastro e Login
+  - Edson, Willian
+    - Design da interface do usuário
+
+### **História #2: Como usuário, eu gostaria de organizar minha vida acadêmica por semestres**
+- Status: Concluída
+- Responsáveis
+  - Vinícius
+    - Adição da nova entidade, Semestre, ao banco de dados
+
+### **História #3: Como usuário, eu gostaria de adicionar/remover(arquivar) semestres no sistema**
+- Status: Incompleta
+- Responsáveis
+  - Edson
+    - Implementação do front-end
+
+### **História #4: Como usuário, eu gostaria de organizar os semestres em função das disciplinas matriculadas**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Organização dos semestres em função das disciplinas matriculadas
+      - Em progresso - Interface básica implementada, porém sem integração com o banco de dados
+
+### **História #5: Como usuário, eu gostaria de adicionar/remover disciplinas nos semestres registrados**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Função de Adicionar/Remover disciplinas nos semestres registrados
+      - Em progresso - Implementado no banco de dados, porém sem fluxo com a interface
+
+### **História #6: Como usuário, eu gostaria de gerar um relatório de desempenho acadêmico geral em um semestre, processando métricas como: tempo de estudo, notas, atividades entregues e pendentes e faltas, de todas as disciplinas**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Implementação das métricas a respeito de notas, atividades entregues/pendentes e faltas
+      - Descartado a métrica para tempo de estudo
+
+### **História #7: Como usuário, eu gostaria de observar e registrar minhas faltas por disciplina**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Registro e Leitura de faltas por disciplina
+      - Implementado no banco de dados, porém não acessível via front-end
+
+### **História #8: Como usuário, eu gostaria de registrar horários de estudo por disciplina**
+- Status: Não Implementado
+
+### **História #9: Como usuário, eu gostaria de acessar a um calendário virtual, o qual eu possa registrar e ser lembrado de datas de avaliações, de entregas de atividades e trabalhos pendentes e dentre outros**
+- Status: Não Implementado
+
+### **Demais histórias:**
+- Como usuário, eu gostaria de *acessar a um calendário virtual*, o qual eu possa registrar e ser lembrado de datas de avaliações, de entregas de atividades e trabalhos pendentes e dentre outros
+  - Status: Incompleta
+  - Responsáveis
+    - Vinícius
+      - Registro e Leitura de notas obtidas por tarefas acadêmicas
+        - Implementado no banco de dados, porém não acessível via front-end
+- Como usuário, eu gostaria de acessar a um boletim virtual, para *registro de notas obtidas por trabalhos, exercícios e provas*
+  - Status: Não Implementado
+- Como usuário, eu gostaria de criar e *salvar anotações sobre as aulas e estudos por disciplina*
+  - Status: Não Implementado
+- Como usuário, eu gostaria de *criar ou entrar em grupos de estudos* com outros usuários da plataforma
+  - Status: Não Implementado
+- Como usuário, eu gostaria de *compartilhar arquivos* com outros usuários da plataforma
+  - Status: Não Implementado
+- Como usuário, eu gostaria de *entrar em contato com outros usuários* da plataforma
+  - Status: Não Implementado

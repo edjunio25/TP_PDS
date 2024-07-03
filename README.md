@@ -137,5 +137,15 @@ https://www.figma.com/file/7ET3V7yJVB9xxx3OTjkg7T/StudyMember?type=design&node-i
 ### **Arquitetura Hexagonal**
 - Para a realização deste projeto foi adotado a implementação de uma Arquitetura Hexagonal
 - A razão por esta decisão se dá pelo seu princípio de separação de um sistema através de camadas isoladas e indepêndentes, o que permite o desenvolvimento de seus componentes seja feita de forma mais flexível e segura, o que facilita o crescimento do projeto
-### **Digrama Explicativo**
+
+### **Portas e Adaptadores**
+- Na Arquitetura Hexagonal implementada, as portas são representadas por interfaces que permitem que as classes de domínio definidas (Pessoa, Semestre, Disciplina, etc) prestem e peçam serviços às camadas mais externas, enquanto preservam sua independência, sendo:
+  - As Portas de Entrada, representadas por interfaces como IDisciplina, ISemestre, etc, reponsáveis por declararem serviços oferecidos pelo sistema, permitindo a comunicação de fora para dentro, como os serviços de Adicionar/Remover faltas em uma disciplina, por exemplo
+  - As Portas de Saída, representadas por interfaces como ISemestreRepo, IDisciplinaRepo, etc, responsáveis por declararem serviços requisitados pelo sistema, permitindo a comunicação de dentro para fora, como o serviço de obter uma entidade Semestre, por exemplo
+- Já os adaptadores são representadas por classes que permitem a comunicação entre
+as tecnologias externas adotadas e as portas da camada de domínio, sendo:
+  - Classes como SemestreController, etc, responsáveis por receberem chamadas de métodos oriundas das tecnologias Angular e ASP.NET, adotadas para a implementação do sistema web, e direcioná-las aos respectivos métodos na porta de entrada
+  - Classes como SemestreRepo, DisciplinaRepo, etc, responsáveis por receberem chamadas de métodos oriundas das classes de domínio do sistema e as encaminharem ao sistema de banco de dados SQLite adotado, através da EntityFramework, da plataforma de desenvolvimento .NET
+
+### **Diagrama Explicativo**
 ![ArquiteturaHexagonal](https://github.com/edjunio25/TP_PDS/assets/135568450/5b39c7bd-f21a-4a88-9eb0-381f704b7bb4)

@@ -1,5 +1,9 @@
 // src/app/semestre/semestre.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AuthorizeService } from '../../api-authorization/authorize.service';
+import { Observable, async } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Router } from '@angular/router'; 
 
@@ -9,31 +13,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./semestres.component.css']
 })
 export class SemestreComponent implements OnInit {
-  semestres: Semestre[] = [];
-  
-  constructor(private router: Router) { }
-  
-  ngOnInit(): void {
-    //this.loadSemestres();
-  }
-  /*
-  loadSemestres(): void {
-    this.SemestreController.getSemestres().subscribe(
-      (data: Semestre[]) => {
-        this.semestres = data;
-      },
-        (error: any) => {
-        console.error('Erro ao buscar semestres:', error);
-      }
-    );
+   public semestres: Semestre[] = [];
+  public isAuthenticated?: Observable<boolean>;
+  public userName: string | undefined | null;
+  public http: HttpClient | undefined;
+  public baseUrl: string | undefined;
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private authorizeService: AuthorizeService, private router: Router) {
+    this.http = http;
+    this.baseUrl = baseUrl;
   }
 
-  gerenciarSemestre(semestre: Semestre): void {
-    console.log('Gerenciar semestre:', semestre);
-    // linkar para a página de gerenciar semestre
-  }
+  ngOnInit() {
+    this.isAuthenticated = this.authorizeService.isAuthenticated();
+    this.authorizeService.getUser().pipe(
+      map(u => u && u.name)
+    ).subscribe(name => {
+      this.userName = name;
+    });
 
- */
+    this.http?.get<Semestre[]>(this.baseUrl + 'semestre?email=' + this.userName).subscribe(result => {
+      this.semestres = result;
+      console.log(result);
+    }, error => console.error(error));
+  }
 
   navegarParaCadastrarNovoSemestre(): void {
     this.router.navigate(['/cadastrar-novo-semestre']);

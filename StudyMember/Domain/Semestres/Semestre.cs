@@ -1,5 +1,6 @@
 ﻿using StudyMember.Domain.DisciplinaDomain;
 using StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities;
+using StudyMember.Models;
 
 namespace StudyMember.Domain.Semestres
 {
@@ -41,6 +42,12 @@ namespace StudyMember.Domain.Semestres
                 result.Add(new Semestre(item.Id, item.Ano, item.SemestreReferencia));
             }
             return result;
+        }
+
+        public bool PostSemester(Semestre semestre, ApplicationUser user)
+        {
+            var semestreDb = new StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre(semestre.Ano,user.Id, semestre.SemestreReferencia);
+            return _repo.PostSemestreAsync(semestreDb);
         }
     }
 }

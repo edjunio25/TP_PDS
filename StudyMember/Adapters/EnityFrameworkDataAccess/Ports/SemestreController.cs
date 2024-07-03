@@ -5,6 +5,7 @@ using StudyMember.Adapters.EnityFrameworkDataAccess.Repos;
 using StudyMember.Data;
 using StudyMember.Domain.Semestres;
 using StudyMember.Models;
+using static Duende.IdentityServer.Models.IdentityResources;
 
 namespace StudyMember.Controllers;
 
@@ -27,6 +28,37 @@ public class SemestreController : ControllerBase
         var repo = new SemestreRepo(_context);
         var semestre = new Semestre(repo);
         return semestre.GetSemestres(user.Id);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] Semestre semestre, [FromQuery] string email)
+    {
+        if (semestre == null)
+        {
+            return BadRequest("Semestre is null");
+        }
+
+        var user = await _userManager.FindByEmailAsync(email);
+        var repo = new SemestreRepo(_context);
+        var semestreObj = new Semestre(repo);
+        // Implement the logic to save the semestre object to the database
+        // For example:
+        try
+        {
+            var result = semestre.PostSemester(semestreObj, user);
+            if (result)
+            {
+                return Ok(semestre);
+            }
+            else
+            {
+                return StatusCode(500, "A problem happened while handling your request.");
+            }
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
 }
 

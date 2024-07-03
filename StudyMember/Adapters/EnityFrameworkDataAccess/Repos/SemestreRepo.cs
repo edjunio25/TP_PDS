@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudyMember.Data;
 using StudyMember.Domain.Semestres;
+using StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities;
 
 namespace StudyMember.Adapters.EnityFrameworkDataAccess.Repos
 {
@@ -28,6 +29,14 @@ namespace StudyMember.Adapters.EnityFrameworkDataAccess.Repos
         public List<Infrastructure.EnityFrameworkDataAccess.Entities.Semestre> GetSemestresAsync(string idAluno)
         {
             return _context.Semestres.Where(s => s.AlunoId == idAluno).ToList();
+        }
+
+        public bool PostSemestreAsync(Infrastructure.EnityFrameworkDataAccess.Entities.Semestre semestre)
+        {
+            var result = _context.Semestres.Add(semestre);
+            _context.SaveChanges();
+
+            return result == null;
         }
     }
 }

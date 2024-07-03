@@ -6,5 +6,6 @@ namespace StudyMember.Domain.Semestres
     {
         public Task<StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre> GetSemestreAsync(int id);
         public List<StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre> GetSemestresAsync(string idAluno);
+        public bool PostSemestreAsync(StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities.Semestre aluno);
     }
 }

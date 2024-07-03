@@ -17,5 +17,12 @@ namespace StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities
         {
             Disciplinas = new HashSet<Disciplina>();
         }
+        public Semestre(int ano, string alunoId, int semestreReferencia)
+        {
+            this.Ano = ano;
+            this.AlunoId = alunoId;
+            this.SemestreReferencia = semestreReferencia;
+            Disciplinas = new HashSet<Disciplina>();
+        }
     }
 }

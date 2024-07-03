@@ -24,5 +24,10 @@ namespace StudyMember.Adapters.EnityFrameworkDataAccess.Repos
 
             return result == null;
         }
+
+        public List<Infrastructure.EnityFrameworkDataAccess.Entities.Semestre> GetSemestresAsync(string idAluno)
+        {
+            return _context.Semestres.Where(s => s.AlunoId == idAluno).ToList();
+        }
     }
 }

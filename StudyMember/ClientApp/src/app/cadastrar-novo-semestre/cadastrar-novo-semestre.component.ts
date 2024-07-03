@@ -13,8 +13,8 @@ export class CadastrarNovoSemestreComponent {
   constructor(private fb: FormBuilder) {
     // Initialize the form with FormBuilder
     this.registerSemesterForm = this.fb.group({
-      nomeDisciplina: ['', Validators.required],
-      codigoDisciplina: [''],
+      ano: [''],
+      semestreReferencia: [''],
       dataInicio: [''],
       dataTermino: ['']
     });

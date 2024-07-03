@@ -19,6 +19,7 @@
               <tr>
                 <th>Disciplina</th>
                 <th>Status</th>
+                <th>Ação</th>
               </tr>
             </thead>
             <tbody>
@@ -26,6 +27,9 @@
               <tr *ngFor="let disciplina of disciplinas">
                 <td>{{ disciplina.name }}</td>
                 <td>{{ disciplina.status }}</td>
+                <td>
+                  <a class="btn btn-primary" [routerLink]="['/menu-disciplina']">Acessar</a>
+                </td>
               </tr>
             </tbody>
           </table>

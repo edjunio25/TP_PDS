@@ -69,3 +69,17 @@ header {
 .container {
   margin-bottom: 100px; /* Para garantir que o footer fique na parte inferior */
 }
+
+.auth-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-button {
+  width: 200px; /* Adjust width as needed */
+  margin: 10px 0; /* Margin for spacing between buttons */
+}
+

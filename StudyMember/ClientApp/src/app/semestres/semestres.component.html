@@ -14,13 +14,13 @@
       <thead>
         <tr>
           <th scope="col">Semestre</th>
-          <th scope="col">Ações</th>
+          <th class="text-end" scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let semestre of semestres">
-          <td>{{ semestre.ano }}/{{ semestre.semestrereferencia }}</td>
-          <td>
+          <td>{{ semestre.ano }}/{{ semestre.semestreReferencia }}</td>
+          <td class="text-end">
             <button class="btn btn-primary" >Gerenciar</button>
           </td>
         </tr>

@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid" *ngIf="(isAuthenticated) === true">
     <div class="row">
       <!-- Main content area -->
       <div class="col-md-9 order-md-1">
         <div class="main-content">
-          <h2>Bem vindo(a), {{ userName }}</h2>
+          <h2>Bem vindo(a), {{ userName }} </h2>
           <table class="table table-bordered table-striped mt-4">
             <thead>
               <tr>
@@ -61,7 +61,11 @@
       </div>
     </div>
   </div>
-
+  <div *ngIf="isAuthenticated === false" class="auth-buttons-container">
+    <h3 style="padding-bottom: 5%;">Olá! Bem vindo(a)!</h3>
+    <button class="btn btn-primary btn-lg col-md-3" style="margin-bottom: 5%;" [routerLink]="['/authentication/login']">Login</button>
+    <button class="btn btn-primary btn-lg col-md-3" [routerLink]="['/authentication/register']">Cadastrar</button>
+  </div>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->

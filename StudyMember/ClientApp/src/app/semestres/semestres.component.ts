@@ -44,5 +44,5 @@ export class SemestreComponent implements OnInit {
 interface Semestre {
   id: number;
   ano: number;
-  semestrereferencia: number;
+  semestreReferencia: number;
 }

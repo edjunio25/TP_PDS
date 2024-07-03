@@ -52,7 +52,7 @@ namespace StudyMember.Domain.DisciplinaDomain
         {
             float notaTotal = 0.0f, totalDistribuido = 0.0f;
             var atividades = Atividades.ToList();
-            var atividadesCount = Atividades.Count();
+            var atividadesCount = Atividades.Count;
 
             if (atividadesCount != 0)
             {

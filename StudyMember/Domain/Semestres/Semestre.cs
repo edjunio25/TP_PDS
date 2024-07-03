@@ -1,4 +1,5 @@
 ﻿using StudyMember.Domain.DisciplinaDomain;
+using StudyMember.Infrastructure.EnityFrameworkDataAccess.Entities;
 
 namespace StudyMember.Domain.Semestres
 {
@@ -28,6 +29,18 @@ namespace StudyMember.Domain.Semestres
         {
             var semestre = _repo.GetSemestreAsync(id).Result;
             return new Semestre(semestre.Id, semestre.Ano, semestre.SemestreReferencia);
+        }
+
+        public List<Semestre> GetSemestres(string idAluno)
+        {
+            var semestres = _repo.GetSemestresAsync(idAluno);
+            var result = new List<Semestre>();
+
+            foreach (var item in semestres)
+            {
+                result.Add(new Semestre(item.Id, item.Ano, item.SemestreReferencia));
+            }
+            return result;
         }
     }
 }

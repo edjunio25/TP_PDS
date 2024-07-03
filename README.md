@@ -132,3 +132,8 @@ https://www.figma.com/file/7ET3V7yJVB9xxx3OTjkg7T/StudyMember?type=design&node-i
 ![StudyMember-4](https://github.com/edjunio25/TP_PDS/assets/55067918/cff88144-0789-41ef-aea1-4023a4c327c7)
 ![StudyMember-5](https://github.com/edjunio25/TP_PDS/assets/55067918/a98c4a02-1d53-48f5-b5d6-911357b6cf1b)
 ![StudyMember-6](https://github.com/edjunio25/TP_PDS/assets/55067918/ecad3f1d-9df6-4442-8951-f52142f518b7)
+
+# **Documentação da Arquitetura**
+### **Arquitetura Hexagonal**
+- Para a realização deste projeto foi adotado a implementação de uma Arquitetura Hexagonal
+- A razão por esta decisão se dá pelo seu princípio de separação de um sistema através de camadas isoladas e indepêndentes, o que permite o desenvolvimento de seus componentes seja feita de forma mais flexível e segura, o que facilita o crescimento do projeto

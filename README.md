@@ -132,3 +132,96 @@ https://www.figma.com/file/7ET3V7yJVB9xxx3OTjkg7T/StudyMember?type=design&node-i
 ![StudyMember-4](https://github.com/edjunio25/TP_PDS/assets/55067918/cff88144-0789-41ef-aea1-4023a4c327c7)
 ![StudyMember-5](https://github.com/edjunio25/TP_PDS/assets/55067918/a98c4a02-1d53-48f5-b5d6-911357b6cf1b)
 ![StudyMember-6](https://github.com/edjunio25/TP_PDS/assets/55067918/ecad3f1d-9df6-4442-8951-f52142f518b7)
+
+# **Documentação da Arquitetura**
+### **Arquitetura Hexagonal**
+- Para a realização deste projeto foi adotado a implementação de uma Arquitetura Hexagonal
+- A razão por esta decisão se dá pelo seu princípio de separação de um sistema através de camadas isoladas e indepêndentes, o que permite o desenvolvimento de seus componentes seja feita de forma mais flexível e segura, o que facilita o crescimento do projeto
+
+### **Portas e Adaptadores**
+- Na Arquitetura Hexagonal implementada, as portas são representadas por interfaces que permitem que as classes de domínio definidas (Pessoa, Semestre, Disciplina, etc) prestem e peçam serviços às camadas mais externas, enquanto preservam sua independência, sendo:
+  - As Portas de Entrada, representadas por interfaces como IDisciplina, ISemestre, etc, reponsáveis por declararem serviços oferecidos pelo sistema, permitindo a comunicação de fora para dentro, como os serviços de Adicionar/Remover faltas em uma disciplina, por exemplo
+  - As Portas de Saída, representadas por interfaces como ISemestreRepo, IDisciplinaRepo, etc, responsáveis por declararem serviços requisitados pelo sistema, permitindo a comunicação de dentro para fora, como o serviço de obter uma entidade Semestre, por exemplo
+- Já os adaptadores são representadas por classes que permitem a comunicação entre
+as tecnologias externas adotadas e as portas da camada de domínio, sendo:
+  - Classes como SemestreController, etc, responsáveis por receberem chamadas de métodos oriundas das tecnologias Angular e ASP.NET, adotadas para a implementação do sistema web, e direcioná-las aos respectivos métodos na porta de entrada
+  - Classes como SemestreRepo, DisciplinaRepo, etc, responsáveis por receberem chamadas de métodos oriundas das classes de domínio do sistema e as encaminharem ao sistema de banco de dados SQLite adotado, através da EntityFramework, da plataforma de desenvolvimento .NET
+
+### **Diagrama Explicativo**
+![ArquiteturaHexagonal](https://github.com/edjunio25/TP_PDS/assets/135568450/5b39c7bd-f21a-4a88-9eb0-381f704b7bb4)
+
+# **Backlog do Sprint (nova versão)**
+
+### **História #1: Como usuário, eu gostaria de cadastrar uma conta na plataforma e tê-la registrada no sistema**
+- Status: Concluída
+- Responsáveis
+  - Vinícius
+    - Criação do projeto
+    - Implementação do banco de dados com a primeira entidade, Usuário
+    - Determinação do endpoint de Cadastro e Login
+  - Edson, Willian
+    - Design da interface do usuário
+
+### **História #2: Como usuário, eu gostaria de organizar minha vida acadêmica por semestres**
+- Status: Concluída
+- Responsáveis
+  - Vinícius
+    - Adição da nova entidade, Semestre, ao banco de dados
+
+### **História #3: Como usuário, eu gostaria de adicionar/remover(arquivar) semestres no sistema**
+- Status: Incompleta
+- Responsáveis
+  - Edson
+    - Implementação do front-end
+
+### **História #4: Como usuário, eu gostaria de organizar os semestres em função das disciplinas matriculadas**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Organização dos semestres em função das disciplinas matriculadas
+      - Em progresso - Interface básica implementada, porém sem integração com o banco de dados
+
+### **História #5: Como usuário, eu gostaria de adicionar/remover disciplinas nos semestres registrados**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Função de Adicionar/Remover disciplinas nos semestres registrados
+      - Em progresso - Implementado no banco de dados, porém sem fluxo com a interface
+
+### **História #6: Como usuário, eu gostaria de gerar um relatório de desempenho acadêmico geral em um semestre, processando métricas como: tempo de estudo, notas, atividades entregues e pendentes e faltas, de todas as disciplinas**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Implementação das métricas a respeito de notas, atividades entregues/pendentes e faltas
+      - Descartado a métrica para tempo de estudo
+
+### **História #7: Como usuário, eu gostaria de observar e registrar minhas faltas por disciplina**
+- Status: Incompleta
+- Responsáveis
+  - Vinícius
+    - Registro e Leitura de faltas por disciplina
+      - Implementado no banco de dados, porém não acessível via front-end
+
+### **História #8: Como usuário, eu gostaria de registrar horários de estudo por disciplina**
+- Status: Não Implementado
+
+### **História #9: Como usuário, eu gostaria de acessar a um calendário virtual, o qual eu possa registrar e ser lembrado de datas de avaliações, de entregas de atividades e trabalhos pendentes e dentre outros**
+- Status: Não Implementado
+
+### **Demais histórias:**
+- Como usuário, eu gostaria de *acessar a um calendário virtual*, o qual eu possa registrar e ser lembrado de datas de avaliações, de entregas de atividades e trabalhos pendentes e dentre outros
+  - Status: Incompleta
+  - Responsáveis
+    - Vinícius
+      - Registro e Leitura de notas obtidas por tarefas acadêmicas
+        - Implementado no banco de dados, porém não acessível via front-end
+- Como usuário, eu gostaria de acessar a um boletim virtual, para *registro de notas obtidas por trabalhos, exercícios e provas*
+  - Status: Não Implementado
+- Como usuário, eu gostaria de criar e *salvar anotações sobre as aulas e estudos por disciplina*
+  - Status: Não Implementado
+- Como usuário, eu gostaria de *criar ou entrar em grupos de estudos* com outros usuários da plataforma
+  - Status: Não Implementado
+- Como usuário, eu gostaria de *compartilhar arquivos* com outros usuários da plataforma
+  - Status: Não Implementado
+- Como usuário, eu gostaria de *entrar em contato com outros usuários* da plataforma
+  - Status: Não Implementado

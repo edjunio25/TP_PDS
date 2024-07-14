@@ -19,8 +19,9 @@ export class CadastrarNovaDisciplinaComponent {
   onSubmit() {
     if (this.registerDisciplineForm.valid) {
       const formData = this.registerDisciplineForm.value;
+      console.log('Formulário enviado!', formData);
     } else {
-      console.log('O formulário não é válido');
+      console.log('Formulário inválido');
     }
   }
 }

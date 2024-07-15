@@ -14,13 +14,15 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 
+import { CadastrarNovaAtividadeComponent } from './CadastrarNovaAtividade/CadastrarNovaAtividade.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +31,7 @@ import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.componen
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: PaginaInicialComponent, pathMatch: 'full' },
+      { path: 'CadastrarNovaAtividade', component: CadastrarNovaAtividadeComponent},
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }
     ])

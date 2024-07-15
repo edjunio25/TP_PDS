@@ -14,7 +14,7 @@ export class CadastrarNovaAtividadeComponent {
       nomeAtividade: ['', Validators.required],
       dataPrazoAtividade: ['', Validators.required],
       tipoAtividade: ['', Validators.required],
-      valorAtividade: ['']
+      valorAtividade: ['', Validators.required]
     });
   }
 

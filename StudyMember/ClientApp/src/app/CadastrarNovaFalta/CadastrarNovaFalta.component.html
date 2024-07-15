@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Nova Falta</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+      <h1>Cadastrar Nova Falta</h1>
+      <p>Preencha o formulário abaixo para cadastrar uma nova falta:</p>
+
+      <form id="registerAbsence">
+        <div class="form-group">
+          <label for="dataFalta">Data da Falta</label>
+          <input type="date" class="form-control" id="dataFalta" name="dataFalta" placeholder="DD/MM/YYYY" required>
+        </div>
+
+        <div class="form-group">
+          <label for="justificativaFalta">Justificativa</label>
+          <input type="text" class="form-control" id="justificativaFalta" name="justificativaFalta" placeholder="Justificativa">
+        </div>
+
+        <div class="form-group">
+          <label for="anexoJustificativaFalta">Anexo da Justificativa</label>
+          <input type="text" class="form-control" id="anexoJustificativaFalta" name="anexoJustificativaFalta" placeholder="Link para o anexo">
+        </div>
+
+        <div class="form-group">
+          <p>Falta abonada?</p>
+
+          <input type="radio" class="form-control" id="faltaAbonadaSim" name="faltaAbonada" value="true" required>
+          <label for="faltaAbonadaSim">Sim</label>
+
+          <input type="radio" class="form-control" id="faltaAbonadaNao" name="faltaAbonada" value="false">
+          <label for="faltaAbonadaNao">Não</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+
+      <div class="mt-4">
+        <a href="index.html" class="btn btn-secondary">Voltar para a Página Inicial</a>
+      </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('registerAbsence').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Formulário enviado! Data da Falta: ' + document.getElementById('dataFalta').value);
+    });
+  </script>
+</body>
+</html>

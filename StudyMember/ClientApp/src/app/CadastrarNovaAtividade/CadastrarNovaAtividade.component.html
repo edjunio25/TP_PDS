@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Nova Atividade</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Cadastrar Nova Atividade</h1>
+    <p>Preencha o formulário abaixo para cadastrar uma nova atividade:</p>
+    <form id="registerExerciseForm">
+      <div class="form-group">
+        <label for="nomeAtividade">Nome da Atividade</label>
+        <input type="text" class="form-control" id="nomeAtividade" name="nomeAtividade" placeholder="Digite o nome da atividade" required>
+      </div>
+      <div class="form-group">
+        <label for="dataPrazoAtividade">Data de Entrega da Atividade</label>
+        <input type="date" class="form-control" id="dataPrazoAtividade" name="dataPrazoAtividade" required>
+      </div>
+      <div class="form-group">
+        <p>Tipo da Atividade</p>
+        <input type="radio" id="prova" name="tipoAtividade" value="prova" required>
+        <label for="prova">Prova</label>
+
+        <input type="radio" id="atividadeIsolada" name="tipoAtividade" value="atividadeIsolada">
+        <label for="prova">Atividade Isolada</label>
+
+        <input type="radio" id="trabalho" name="tipoAtividade" value="trabalho">
+        <label for="prova">Trabalho</label>
+      </div>
+      <div>
+        <label>Valor da Atividade</label>
+        <input type="number" id="valorAtividade" name="valorAtividade" min="0">
+      </div>
+    </form>
+    <div class="mt-4">
+      <a href="index.html" class="btn btn-secondary">Voltar para a Página Inicial</a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('registerExerciseForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Formulário enviado! Nome da Atividade: ' + document.getElementById('nomeAtividade').value);
+    });
+  </script>
+</body>
+</html>

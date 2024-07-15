@@ -15,6 +15,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 
 import { CadastrarNovaAtividadeComponent } from './CadastrarNovaAtividade/CadastrarNovaAtividade.component';
+import { CadastrarNovaDisciplinaComponent } from './CadastrarNovaDisciplina/CadastrarNovaDisciplina.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CadastrarNovaAtividadeComponent } from './CadastrarNovaAtividade/Cadast
     RouterModule.forRoot([
       { path: '', component: PaginaInicialComponent, pathMatch: 'full' },
       { path: 'CadastrarNovaAtividade', component: CadastrarNovaAtividadeComponent},
+      { path: 'CadastrarNovaDisciplina', component: CadastrarNovaDisciplinaComponent},
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }
     ])

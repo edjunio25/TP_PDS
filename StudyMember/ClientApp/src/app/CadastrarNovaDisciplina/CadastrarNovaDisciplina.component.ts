@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-cadastrar-nova-disciplina',
   templateUrl: './CadastrarNovaDisciplina.component.html',
-  styleUrls: ['.CadastrarNovaDisciplina.component.css']
+  styleUrls: ['./CadastrarNovaDisciplina.component.css']
 })
 export class CadastrarNovaDisciplinaComponent {
   registerDisciplineForm: FormGroup;

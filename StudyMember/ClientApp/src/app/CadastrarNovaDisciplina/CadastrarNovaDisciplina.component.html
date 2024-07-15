@@ -10,7 +10,6 @@
   <div class="container mt-5">
     <h1>Cadastrar Nova Disciplina</h1>
     <p>Preencha o formulário abaixo para cadastrar uma nova disciplina:</p>
-
     <form id="registerDiscipline">
       <div class="form-group">
         <label for="nomeDisciplina">Nome da Disciplina</label>
@@ -37,7 +36,7 @@
   <script>
     document.getElementById('registerDisciplineForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      alert('formulário enviado! Nome da Disciplina: ' + document.getElementById('nomeDisciplina').value);
+      alert('Formulário enviado! Nome da Disciplina: ' + document.getElementById('nomeDisciplina').value);
     });
   </script>
 </body>

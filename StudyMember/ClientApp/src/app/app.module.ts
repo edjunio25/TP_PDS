@@ -16,6 +16,7 @@ import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.componen
 
 import { CadastrarNovaAtividadeComponent } from './CadastrarNovaAtividade/CadastrarNovaAtividade.component';
 import { CadastrarNovaDisciplinaComponent } from './CadastrarNovaDisciplina/CadastrarNovaDisciplina.component';
+import { CadastrarNovaFaltaComponent } from './CadastrarNovaFalta/CadastrarNovaFalta.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CadastrarNovaDisciplinaComponent } from './CadastrarNovaDisciplina/Cada
       { path: '', component: PaginaInicialComponent, pathMatch: 'full' },
       { path: 'CadastrarNovaAtividade', component: CadastrarNovaAtividadeComponent},
       { path: 'CadastrarNovaDisciplina', component: CadastrarNovaDisciplinaComponent},
+      { path: 'CadastrarNovaFalta', component: CadastrarNovaFaltaComponent},
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }
     ])

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-cadastrar-nova-falta',
   templateUrl: './CadastrarNovaFalta.component.html',
-  styleUrls: ['.CadastrarNovaFalta.component.css']
+  styleUrls: ['./CadastrarNovaFalta.component.css']
 })
 export class CadastrarNovaFaltaComponent {
   registerAbsenceForm: FormGroup;
@@ -14,7 +14,7 @@ export class CadastrarNovaFaltaComponent {
       dataFalta: ['', Validators.required],
       justificativaFalta: [''],
       anexoJustificativaFalta: [''],
-      faltaAbonada: ['']
+      faltaAbonada: ['', Validators.required]
     });
   }
 

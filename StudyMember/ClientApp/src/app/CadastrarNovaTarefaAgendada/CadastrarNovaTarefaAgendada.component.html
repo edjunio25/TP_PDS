@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Nova Tarefa Agendada</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Cadastrar Nova Tarefa Agendada</h1>
+    <p>Preencha o formulário abaixo para cadastrar uma nova tarefa agendada:</p>
+    <form id="registerScheduledTaskForm">
+
+      <div class="form-group">
+        <label for="nomeTarefa">Nome da Tarefa Agendada</label>
+        <input type="text" class="form-control" id="nomeTarefa" name="nomeTarefa" placeholder="Digite o nome da Tarefa Agendada" required>
+      </div>
+
+      <div class="form-group">
+        <label for="descricaoTarefa">Descrição da Tarefa</label>
+        <input type="text" class="form-control" id="descricaoTarefa" name="descricaoTarefa" placeholder="Digite a descrição da Tarefa">
+      </div>
+
+      <div class="form-group">
+        <label for="dataInicio">Data de Início</label>
+        <input type="date" class="form-control" id="dataInicio" name="dataInicio" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="dataTermino">Data de Término</label>
+        <input type="date" class="form-control" id="dataTermino" name="dataTermino" required>
+      </div>
+
+      <div class="form-group">
+        <label for="tipoAtividade">Tipo de Tarefa</label>
+        <select class="form-control" id="tipoTarefa" name="tipoTarefa" required>
+          <option value="">Escolha</option>
+          <option value="atividade">Atividade</option>
+          <option value="prova">Prova</option>
+          <option value="trabalhoTarefa">Trabalho Tarefa</option>
+          <option value="trabalhoEntrega">Trabalho Entrega</option>
+          <option value="reunião">Reunião</option>
+          <option value="evento">Evento</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+    <div class="mt-4">
+      <a href="index.html" class="btn btn-secondary">Voltar para a Página Inicial</a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('registerScheduledTaskForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Formulário enviado! Nome da Tarefa Agendada: ' + document.getElementById('nomeTarefa').value);
+    });
+  </script>
+</body>
+</html>

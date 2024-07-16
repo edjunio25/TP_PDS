@@ -17,6 +17,7 @@ import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.componen
 import { CadastrarNovaAtividadeComponent } from './CadastrarNovaAtividade/CadastrarNovaAtividade.component';
 import { CadastrarNovaDisciplinaComponent } from './CadastrarNovaDisciplina/CadastrarNovaDisciplina.component';
 import { CadastrarNovaFaltaComponent } from './CadastrarNovaFalta/CadastrarNovaFalta.component';
+import { CadastrarNovaTarefaAgendadaComponent } from './CadastrarNovaTarefaAgendada/CadastrarNovaTarefaAgendada.component';
 import { CadastrarNovoSemestreComponent } from './CadastrarNovoSemestre/CadastrarNovoSemestre.component';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CadastrarNovoSemestreComponent } from './CadastrarNovoSemestre/Cadastra
       { path: 'CadastrarNovaAtividade', component: CadastrarNovaAtividadeComponent },
       { path: 'CadastrarNovaDisciplina', component: CadastrarNovaDisciplinaComponent },
       { path: 'CadastrarNovaFalta', component: CadastrarNovaFaltaComponent },
+      { path: 'CadastrarNovaTarefaAgendada', component: CadastrarNovaTarefaAgendadaComponent },
       { path: 'CadastrarNovoSemestre', component: CadastrarNovoSemestreComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }

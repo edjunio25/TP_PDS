@@ -10,7 +10,7 @@
     <div class="container mt-5">
       <h1>Cadastrar Nova Falta</h1>
       <p>Preencha o formulário abaixo para cadastrar uma nova falta:</p>
-      <form id="registerAbsence">
+      <form id="registerAbsenceForm">
         <div class="form-group">
           <label for="dataFalta">Data da Falta</label>
           <input type="date" class="form-control" id="dataFalta" name="dataFalta" required>
@@ -48,7 +48,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    document.getElementById('registerAbsence').addEventListener('submit', function(event) {
+    document.getElementById('registerAbsenceForm').addEventListener('submit', function(event) {
       event.preventDefault();
       alert('Formulário enviado! Data da Falta: ' + document.getElementById('dataFalta').value);
     });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,30 +12,17 @@
     <h1>Cadastrar Novo Semestre</h1>
     <p>Preencha o formulário abaixo para cadastrar um novo semestre:</p>
 
-    <form id="registerSemesterForm">
-      <!-- Nome da Disciplina Field -->
-      <div class="form-group">
-        <label for="nomeDisciplina">Nome da Disciplina</label>
-        <input type="text" class="form-control" id="nomeDisciplina" name="nomeDisciplina" placeholder="Digite o nome da disciplina" required>
-      </div>
-
-      <!-- Add more fields as needed -->
-      <!-- Example of additional field: Código da Disciplina -->
-      <div class="form-group">
-        <label for="codigoDisciplina">Código da Disciplina</label>
-        <input type="text" class="form-control" id="codigoDisciplina" name="codigoDisciplina" placeholder="Digite o código da disciplina">
-      </div>
-
       <!-- Example of additional field: Data de Início -->
+    <form id="registerSemesterForm">
       <div class="form-group">
         <label for="dataInicio">Data de Início</label>
-        <input type="date" class="form-control" id="dataInicio" name="dataInicio">
+        <input type="date" class="form-control" id="dataInicio" name="dataInicio" required>
       </div>
 
       <!-- Example of additional field: Data de Término -->
       <div class="form-group">
         <label for="dataTermino">Data de Término</label>
-        <input type="date" class="form-control" id="dataTermino" name="dataTermino">
+        <input type="date" class="form-control" id="dataTermino" name="dataTermino" required>
       </div>
 
       <!-- Submit Button -->
@@ -55,12 +42,12 @@
 
   <!-- JavaScript to handle form submission -->
   <script>// Event listener for form submission
-        document.getElementById('registerSemesterForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the default form submission
-
+    document.getElementById('registerSemesterForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevents the default form submission
             // Placeholder function for form submission
             // Here you can add functionality to handle form submission, such as sending data to the server
-            alert('Form submitted! Nome da Disciplina: ' + document.getElementById('nomeDisciplina').value);
-        });</script>
+      alert('Formulário enviado! Data de início do Semestre: ' + document.getElementById('dataInicio').value);
+  });
+  </script>
 </body>
 </html>

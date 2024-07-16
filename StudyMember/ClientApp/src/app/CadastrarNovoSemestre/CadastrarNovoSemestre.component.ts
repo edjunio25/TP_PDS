@@ -13,10 +13,8 @@ export class CadastrarNovoSemestreComponent {
   constructor(private fb: FormBuilder) {
     // Initialize the form with FormBuilder
     this.registerSemesterForm = this.fb.group({
-      nomeDisciplina: ['', Validators.required],
-      codigoDisciplina: [''],
-      dataInicio: [''],
-      dataTermino: ['']
+      dataInicio: ['', Validators.required],
+      dataTermino: ['', Validators.required]
     });
   }
 
@@ -24,7 +22,7 @@ export class CadastrarNovoSemestreComponent {
   onSubmit() {
     if (this.registerSemesterForm.valid) {
       const formData = this.registerSemesterForm.value;
-      console.log('Form Submitted!', formData);
+      console.log('Formulário enviado!', formData);
       // Here, you can add functionality to process the form data,
       // such as sending it to a backend service or updating the state.
       // For example:
@@ -32,7 +30,7 @@ export class CadastrarNovoSemestreComponent {
       //   console.log('Semester added successfully', response);
       // });
     } else {
-      console.log('Form is not valid');
+      console.log('Formulário inválido');
     }
   }
 }
